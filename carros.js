@@ -72,6 +72,7 @@ function Inserir() {
             modelo: modelo,
             ano: ano,
             placa: placa,
+            comprador: '',
             vendido: false,
           });
           console.log("Carro cadastrado com sucesso");
@@ -179,17 +180,18 @@ function MarcarComoVendido() {
         }`
       );
     });
-    rl.question("digite o numero do carro que você quer dar como vendido: ",(numero) => {
-        if (numero > 0 && numero <= carros.length && !carros[numero -1].vendido) {
-          carros[numero -1].vendido = true;
-          console.log("Carro marcado como vendido!");
-          exibirMenu();
-        } else {
-          console.log("O carro com este numero pode ja ter sido vendido ou é apenas numero invalido");
-          exibirMenu();
-        }
+    rl.question("Digite o numero do carro", (numero) => {
+      if(numero > 0 && numero <= carros.length && !carros[numero -1].vendido){
+        rl.question("digite o nome do Comprador: ", (nome) => {
+            carros[numero -1].comprador = nome
+            carros[numero -1].vendido = true
+            exibirMenu()
+        })
+      }else{
+        console.log("Numero invalido(ou carro já Vendido)")
+        exibirMenu()
       }
-    );
+    })
   }
 }
 
@@ -235,7 +237,7 @@ function VerVendidos() {
     }else if(carrosVendidos.length > 0){
         console.log('listando os carros vendidos')
         carrosVendidos.forEach((carros,index) => {
-            console.log(`${index +1}. marca: ${carros.marca}, modelo: ${carros.modelo}, ano: ${carros.ano}`)
+            console.log(`${index +1}. marca: ${carros.marca}, modelo: ${carros.modelo}, ano: ${carros.ano}, Comprador: ${carros.comprador}`)
               })
               exibirMenu()
     }else{
