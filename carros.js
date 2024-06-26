@@ -14,7 +14,6 @@ const rl = readline.createInterface({
 });
 
 let carros = [];
-const carrosVendidos = [];
 
 exibirMenu();
 
@@ -27,7 +26,7 @@ function exibirMenu() {
     5. Marcar como vendido
     6. Ver disponibilidade
     7. Ver carros vendidos
-    8. Sair`);
+    0. Sair`);
 
   rl.question("Selecione a função desejada: ", (função) => {
     switch (função) {
@@ -52,7 +51,7 @@ function exibirMenu() {
       case "7":
         VerVendidos()
         break;
-      case "8":
+      case "0":
         rl.close()
         break;
       default:
@@ -163,9 +162,9 @@ function ListarCadastrados() {
           carro.ano
         }`
       );
-      exibirMenu();
     });
   }
+  exibirMenu()
 }
 function MarcarComoVendido() {
   if (carros.length == 0) {
@@ -180,21 +179,13 @@ function MarcarComoVendido() {
         }`
       );
     });
-    rl.question(
-      "digite o numero do carro que você quer dar como vendido: ",
-      (numero) => {
-        if (
-          numero > 0 &&
-          numero <= carros.length &&
-          !carros[numero - 1].vendido
-        ) {
-          carros[numero - 1].vendido = true;
-          console.log("Carro marcado como vendido com sucesso!");
+    rl.question("digite o numero do carro que você quer dar como vendido: ",(numero) => {
+        if (numero > 0 && numero <= carros.length && !carros[numero -1].vendido) {
+          carros[numero -1].vendido = true;
+          console.log("Carro marcado como vendido!");
           exibirMenu();
         } else {
-          console.log(
-            "O carro com este numero pode ja ter sido vendido ou é apenas numero invalido"
-          );
+          console.log("O carro com este numero pode ja ter sido vendido ou é apenas numero invalido");
           exibirMenu();
         }
       }
@@ -204,6 +195,7 @@ function MarcarComoVendido() {
 
 function VerDisponibilidade() {
   let carrosDisponiveis = []
+  let carrosVendidos = []
   for(let i = 0;i < carros.length;i++){
     if(carros[i].vendido == true){
         carrosVendidos.push(carros[i])
@@ -229,6 +221,7 @@ function VerDisponibilidade() {
 
 function VerVendidos() {
   let carrosDisponiveis = [] 
+  let carrosVendidos = []
   for(let i = 0;i < carros.length;i++){
     if(carros[i].vendido == true){
         carrosVendidos.push(carros[i])
