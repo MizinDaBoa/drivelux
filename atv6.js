@@ -246,7 +246,7 @@ function VerVendidos() {
               })
               exibirMenu()
     }else{
-        console.log('Não há nenhum carro vendido')
+        console.log('Nenhum carro foi vendido ainda')
         exibirMenu()
     }
 } 
