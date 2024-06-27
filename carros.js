@@ -139,7 +139,7 @@ function Excluir() {
       "Digite o numero do carro que voce quer excluir do sistema: ",
       (ExclusãoCarro) => {
         if (ExclusãoCarro > 0 && ExclusãoCarro <= carros.length) {
-          carros.splice[(ExclusãoCarro - 1, 1)];
+          carros.splice(ExclusãoCarro - 1, 1);
           console.log("Carro removido com sucesso!");
           exibirMenu();
         } else {
