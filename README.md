@@ -18,8 +18,8 @@ Auxiliar donos de lojas de carros a obter o controle dos dados dos automóveis.
 * `Editar`: Permite que as propriedades sejam editadas.
 * `Excluir`: Usado para excluir um automóvel;
 * `Listar`:Usado para listar todos os carros cadastrados e suas propriedades.
-* `Marcar como vendido`: Permite que o usuário exclua um carro.
-* `Ver disponibilidade`: Permite que o usuário veja quais carros estão disponíveis e quais ja foram vendidos.
+* `Marcar como vendido`: Permite ao usuário especificar qual carro já foi vendido.
+* `Ver disponibilidade`: Permite que o usuário veja quais carros cadastrados estão disponíveis para venda.
 * `Ver carros vendidos`: Ver quais carros já foram vendidos.
 
 ## Utilização do sistema 
