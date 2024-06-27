@@ -180,7 +180,7 @@ function MarcarComoVendido() {
         }`
       );
     });
-    rl.question("Digite o numero do carro", (numero) => {
+    rl.question("Digite o numero do carro: ", (numero) => {
       if(numero > 0 && numero <= carros.length && !carros[numero -1].vendido){
         rl.question("digite o nome do Comprador: ", (nome) => {
             carros[numero -1].comprador = nome
